@@ -1,0 +1,24 @@
+.btn {
+    background-color: transparent;
+    color: $content;
+    border: 1px solid $border;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 4px 12px;
+    display: inline-flex;
+    align-items: center;
+    &>.icon {
+        margin-right: 4px;
+    }
+    &__primary {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+    }
+    &__outline {
+        background-color: transparent;
+        border-color: $border;
+        color: $content;
+    }
+}

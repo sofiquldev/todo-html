@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous"> -->
+    <!-- iconify cdn -->
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="res/css/style.css">
+
+    <title>TODO - HTML Web App Component</title>
+</head>
+<body>
+    <div class="container">
+        <div class="todo">
+            <div class="todo__header">
+                <h2 class="todo__header__title">Todo <span class="todo__count">35</span></h2>
+            </div>
+
+            <div class="todo__inner">
+                <div class="todo__item">
+                    <div class="todo__item__status"></div>
+                    <div class="todo__item__body">
+                        <h4 class="todo__item__title">Complete main UI components</h4>
+                        <p class="todo__item__desc">Would be good if we include every component ion design system...</p>
+                        <p class="todo__item__meta">
+                            <span class="todo__item__date">
+                                <span class="icon iconify" data-icon="mdi:calendar-month-outline"></span>
+                                6 Apr 2023
+                            </span>
+                            <span class="todo__item__user">
+                                <span class="icon iconify" data-icon="ant-design:user-outlined"></span>
+                                Esther Howard
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="todo__item">
+                    <div class="todo__item__status"></div>
+                    <div class="todo__item__body">
+                        <h4 class="todo__item__title">Landing page design</h4>
+                        <p class="todo__item__meta">
+                            <span class="todo__item__date">
+                                <span class="icon iconify" data-icon="mdi:calendar-month-outline"></span>
+                                6 Apr 2023
+                            </span>
+                            <span class="todo__item__user">
+                                <span class="icon iconify" data-icon="ant-design:user-outlined"></span>
+                                Esther Howard
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="todo__item">
+                    <div class="todo__item__status"></div>
+                    <div class="todo__item__body">
+                        <h4 class="todo__item__title">Brand Guidelins</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="todo__new">
+                <form action="#">
+                    <div class="todo__new__input">
+                        <input type="text" name="todoTitle" id="todoTitle" value="" placeholder="Task name here...">
+                        <textarea name="todoDesc" id="todoDesc" cols="30" rows="3" placeholder="Description"></textarea>
+                    </div>
+                    <div class="todo__new__bottom">
+                        <button class="btn btn__outline" type="button">
+                            <span class="icon iconify" data-icon="mdi:calendar-month-outline"></span>
+                            Due Date
+                        </button>
+                        <button class="btn btn__primary" type="button">
+                            <span class="icon iconify" data-icon="ant-design:user-outlined"></span>
+                            Assign To
+                        </button>
+                        <div class="todo__new__actions">
+                            <button class="btn btn__outline" type="reset">Cancel</button>
+                            <button class="btn btn__primary" type="submit">Add Task</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

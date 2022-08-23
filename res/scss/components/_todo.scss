@@ -1,0 +1,101 @@
+.todo {
+    width: 100%;
+    max-width: 500px;
+    border: 1px solid $border;
+    border-radius: 16px;
+    margin: 50px auto;
+    overflow: hidden;
+    &__header {
+        padding: 16px;
+        background-color: $bg;
+        &__title {
+            font-size: 16px;
+            font-weight: $semibold;
+        }
+    }
+    &__count {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 20px;
+        font-weight: $regular;
+        // width: 20px;
+        padding: 2px 8px;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        color: $white;
+        background-color: $primary;
+        text-align: center;
+    }
+    
+    &__inner {
+        padding: 16px;
+    }
+    &__item {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        padding: 8px 0;
+        border-bottom: 1px solid $border;
+        
+        &__status {
+            width: 16px;
+            aspect-ratio: 1/1;
+            border: 1px solid $content;
+            border-radius: 50%;
+            margin-right: 16px;
+        }
+        
+        // &__body {}
+        &__title {
+            font-size: 18px;
+            line-height: 24px;
+            font-weight: $semibold;
+        }
+        &__desc {}
+        &__meta {
+            margin-top: 4px;
+            &>* {
+                margin-right: 8px;
+            }
+        }
+        
+        // &__date {}
+        // &__user {}
+    }
+    
+    &__new {
+        background-color: $bg;
+        border-radius: 16px;
+        padding: 16px;
+        &__input {
+            margin-bottom: 16px;
+            input, textarea {
+                display: block;
+                width: 100%;
+                background-color: transparent;
+                border: none;
+                padding: 8px;
+                font-family: $default;
+                color: $content;
+                font-size: 14px;
+                resize: none;
+                &::placeholder {
+                    color: $content2;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+        }
+        &__bottom {
+            button {
+                margin-right: 4px;
+            }
+            display: flex;
+            justify-content: flex-start;
+        }
+        &__actions {
+            margin-left: auto;
+        }
+    }
+}
