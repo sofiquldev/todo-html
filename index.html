@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,16 +15,17 @@
 
     <title>TODO - HTML Web App Component</title>
 </head>
+
 <body>
     <div class="container">
         <div class="todo">
             <div class="todo__header">
-                <h2 class="todo__header__title">Todo <span class="todo__count">35</span></h2>
+                <h2 class="todo__header__title">Todo <span class="todo__count">3</span></h2>
             </div>
 
             <div class="todo__inner">
                 <div class="todo__item">
-                    <div class="todo__item__status"></div>
+                    <div class="todo__item__status --finished"></div>
                     <div class="todo__item__body">
                         <h4 class="todo__item__title">Complete main UI components</h4>
                         <p class="todo__item__desc">Would be good if we include every component ion design system...</p>
@@ -40,7 +42,7 @@
                     </div>
                 </div>
                 <div class="todo__item">
-                    <div class="todo__item__status"></div>
+                    <div class="todo__item__status --running"></div>
                     <div class="todo__item__body">
                         <h4 class="todo__item__title">Landing page design</h4>
                         <p class="todo__item__meta">
@@ -56,13 +58,16 @@
                     </div>
                 </div>
                 <div class="todo__item">
-                    <div class="todo__item__status"></div>
+                    <div class="todo__item__status --rejected"></div>
                     <div class="todo__item__body">
                         <h4 class="todo__item__title">Brand Guidelins</h4>
                     </div>
                 </div>
             </div>
 
+            <button class="todo__new__btn">
+                <span class="icon iconify" data-icon="mdi:plus"></span>
+            </button>
             <div class="todo__new">
                 <form action="#">
                     <div class="todo__new__input">
@@ -87,5 +92,9 @@
             </div>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" crossorigin="anonymous"></script>
+    <script src="res/js/script.js"></script>
 </body>
+
 </html>

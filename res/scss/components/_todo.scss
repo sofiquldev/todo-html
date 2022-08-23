@@ -1,18 +1,23 @@
 .todo {
-    width: 100%;
+    width: calc(100% - 30px);
     max-width: 500px;
     border: 1px solid $border;
     border-radius: 16px;
     margin: 50px auto;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
     &__header {
         padding: 16px;
         background-color: $bg;
+
         &__title {
             font-size: 16px;
             font-weight: $semibold;
         }
     }
+
     &__count {
         display: inline-block;
         font-size: 12px;
@@ -26,50 +31,136 @@
         background-color: $primary;
         text-align: center;
     }
-    
+
     &__inner {
         padding: 16px;
     }
+
     &__item {
         display: flex;
         flex-wrap: nowrap;
         align-items: flex-start;
         padding: 8px 0;
         border-bottom: 1px solid $border;
-        
+
         &__status {
             width: 16px;
+            min-width: 16px;
             aspect-ratio: 1/1;
             border: 1px solid $content;
             border-radius: 50%;
             margin-right: 16px;
+
+            &.--finished {
+                background-color: green;
+                border-color: green;
+            }
+
+            &.--rejected {
+                background-color: orangered;
+                border-color: orangered;
+            }
+
+            &.--running {
+                background-color: $primary;
+                border-color: $primary;
+            }
+
+            &.--ongoing {
+                background-color: transparent;
+                border-color: $content;
+            }
         }
-        
+
         // &__body {}
         &__title {
             font-size: 18px;
-            line-height: 24px;
+            line-height: 20px;
             font-weight: $semibold;
+            color: $heading;
+
+            @include respond(phone-mid) {
+                font-size: 16px;
+                line-height: 18px;
+            }
         }
-        &__desc {}
+
+        &__desc {
+            font-size: 16px;
+            line-height: 20px;
+            margin-top: 8px;
+            color: $content;
+
+            @include respond(phone-mid) {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+
         &__meta {
+            font-size: 14px;
+            line-height: 18px;
             margin-top: 4px;
+            color: $content;
+
+            @include respond(phone-mid) {
+                font-size: 12px;
+                line-height: 16px;
+            }
+
+            .icon {
+                font-size: 16px;
+                top: 2px;
+                position: relative;
+
+                @include respond(phone-mid) {
+                    top: 3;
+                }
+            }
+
             &>* {
                 margin-right: 8px;
             }
         }
-        
+
         // &__date {}
         // &__user {}
     }
-    
+
     &__new {
         background-color: $bg;
-        border-radius: 16px;
+        border-radius: 16px 16px 0 0;
         padding: 16px;
+        display: none;
+
+        &__btn {
+            width: 50px;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background-color: $primary;
+            border: none;
+            color: $white;
+            margin: 16px;
+            margin-left: auto;
+            cursor: pointer;
+
+            .icon {
+                font-size: 24px;
+                transition: $transition;
+            }
+
+            &:hover {
+                .icon {
+                    transform: scale(1.4);
+                }
+            }
+        }
+
         &__input {
             margin-bottom: 16px;
-            input, textarea {
+
+            input,
+            textarea {
                 display: block;
                 width: 100%;
                 background-color: transparent;
@@ -79,23 +170,44 @@
                 color: $content;
                 font-size: 14px;
                 resize: none;
+
                 &::placeholder {
                     color: $content2;
                 }
+
+                &#todoTitle {
+                    font-size: 16px;
+                    font-weight: $semibold;
+                    color: $heading;
+                }
+
+
                 &:focus {
                     outline: none;
                 }
             }
         }
+
         &__bottom {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+
             button {
                 margin-right: 4px;
             }
-            display: flex;
-            justify-content: flex-start;
+
         }
+
         &__actions {
+            display: flex;
+            justify-content: flex-end;
             margin-left: auto;
+
+            @include respond(phone-sm) {
+                margin-top: 8px;
+                flex-basis: 100%;
+            }
         }
     }
 }

@@ -8,16 +8,19 @@
     padding: 4px 12px;
     display: inline-flex;
     align-items: center;
+
     &>.icon {
         margin-right: 4px;
     }
+
     &__primary {
         background-color: $primary;
         border-color: $primary;
         color: $white;
     }
+
     &__outline {
-        background-color: transparent;
+        background-color: $white;
         border-color: $border;
         color: $content;
     }
