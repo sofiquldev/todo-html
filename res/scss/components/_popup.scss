@@ -1,0 +1,77 @@
+.popup {
+    width: 160px;
+    background-color: $white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba($black, 0.1);
+    color: $content;
+    display: none;
+    position: absolute;
+
+    &.show {
+        display: block;
+    }
+
+    &.top {
+        bottom: calc(100% + 4px);
+
+    }
+    &.left {
+        left: 0;
+    }
+    &.right {
+        left: unset;
+        right: 0;
+    }
+    &.bottom {
+        bottom: unset;
+        top: calc(100% + 4px);
+    }
+    &__header {
+        display: block;
+        color: $heading;
+        font-weight: $semibold;
+        padding: 8px;
+    }
+    &__body {
+        display: block;
+        
+    }
+    &__input {
+        width: 100%;
+        padding: 4px 8px;
+        border: 1px solid $border;
+        border-radius: 0;
+        margin-bottom: 4px;
+        &:focus {
+            outline: none;
+        }
+    }
+    &__suggestions {
+        display: flex;
+        flex-direction: column;
+    }
+    &__user {
+        display: flex;
+        align-items: center;
+        padding: 2px 8px;
+        border-bottom: 1px solid $border;
+        cursor: pointer;
+        &:hover {
+            background-color: rgba($black, 0.05);;
+        }
+        .avatar {
+            margin-right: 8px;
+        }
+    }
+    &__footer {
+        padding: 8px;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.avatar {
+    width: 24px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}

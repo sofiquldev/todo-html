@@ -2,3 +2,71 @@
     font-size: 16px;
     line-height: 22px;
 }
+label {
+    cursor: pointer;
+}
+
+// custom input 
+
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+    &~label {
+        font-size: 14px;
+        font-weight: $medium;
+        color: $heading;
+        text-transform: capitalize;
+        .icon {
+            width: 12px;
+            display: inline-block;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid transparent;
+            transform: translateY(1px);
+            &.--finished {
+                border-color: green;
+            }
+    
+            &.--rejected {
+                border-color: orangered;
+            }
+    
+            &.--running {
+                border-color: $primary;
+            }
+    
+            &.--ongoing {
+                border-color: $content;
+            }
+        }
+    }
+
+    &:checked {
+        &~label {
+            .icon {
+                &.--finished {
+                    background-color: green;
+                }
+        
+                &.--rejected {
+                    background-color: orangered;
+                }
+        
+                &.--running {
+                    background-color: $primary;
+                }
+        
+                &.--ongoing {
+                    background-color: $content;
+                }
+            }
+        }
+    }
+}
+input[type="checkbox"] {
+    &~label {
+        .icon {
+            border-radius: 2px !important;
+        }
+    }
+}

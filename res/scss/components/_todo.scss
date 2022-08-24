@@ -11,6 +11,7 @@
     &__header {
         padding: 16px;
         background-color: $bg;
+        border-bottom: 1px solid $primary;
 
         &__title {
             font-size: 16px;
@@ -33,15 +34,30 @@
     }
 
     &__inner {
-        padding: 16px;
+        padding-bottom: 16px;
     }
 
     &__item {
-        display: flex;
-        flex-wrap: nowrap;
-        align-items: flex-start;
-        padding: 8px 0;
         border-bottom: 1px solid $border;
+        cursor: pointer;
+        &__wrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: flex-start;
+            padding: 8px 16px;
+        }
+        &__actions {
+            padding: 8px 16px 8px 48px;
+            background-color: gainsboro;
+            .form-inline {
+                display: flex;
+                align-items: center;
+                .form__group {
+                    margin-right: 16px;
+                }
+            }
+        }
+        // &
 
         &__status {
             width: 16px;
@@ -125,6 +141,9 @@
 
         // &__date {}
         // &__user {}
+        &:hover {
+            background-color: rgba($black, 0.05);
+        }
     }
 
     &__new {
@@ -188,12 +207,22 @@
             }
         }
 
-        &__bottom {
+        &__footer {
             display: flex;
             justify-content: flex-start;
             flex-wrap: wrap;
-
-            button {
+            [data-for="assignUserpopup"] {
+                position: relative;
+            }
+            #dueDate, #assignUser {
+                width: 2px;
+                opacity: 0;
+                visibility: hidden;
+                &~label {
+                    margin-left: -4px;
+                }
+            }
+            .btn {
                 margin-right: 4px;
             }
 

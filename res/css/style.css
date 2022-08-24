@@ -807,6 +807,58 @@ input[type=date]::-webkit-calendar-picker-indicator {
   line-height: 22px;
 }
 
+label {
+  cursor: pointer;
+}
+
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+input[type=radio] ~ label, input[type=checkbox] ~ label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #252522;
+  text-transform: capitalize;
+}
+input[type=radio] ~ label .icon, input[type=checkbox] ~ label .icon {
+  width: 12px;
+  display: inline-block;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid transparent;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+}
+input[type=radio] ~ label .icon.--finished, input[type=checkbox] ~ label .icon.--finished {
+  border-color: green;
+}
+input[type=radio] ~ label .icon.--rejected, input[type=checkbox] ~ label .icon.--rejected {
+  border-color: orangered;
+}
+input[type=radio] ~ label .icon.--running, input[type=checkbox] ~ label .icon.--running {
+  border-color: #672ee3;
+}
+input[type=radio] ~ label .icon.--ongoing, input[type=checkbox] ~ label .icon.--ongoing {
+  border-color: #403c39;
+}
+input[type=radio]:checked ~ label .icon.--finished, input[type=checkbox]:checked ~ label .icon.--finished {
+  background-color: green;
+}
+input[type=radio]:checked ~ label .icon.--rejected, input[type=checkbox]:checked ~ label .icon.--rejected {
+  background-color: orangered;
+}
+input[type=radio]:checked ~ label .icon.--running, input[type=checkbox]:checked ~ label .icon.--running {
+  background-color: #672ee3;
+}
+input[type=radio]:checked ~ label .icon.--ongoing, input[type=checkbox]:checked ~ label .icon.--ongoing {
+  background-color: #403c39;
+}
+
+input[type=checkbox] ~ label .icon {
+  border-radius: 2px !important;
+}
+
 .btn {
   background-color: transparent;
   color: #403c39;
@@ -821,6 +873,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  cursor: pointer;
 }
 .btn > .icon {
   margin-right: 4px;
@@ -834,6 +887,94 @@ input[type=date]::-webkit-calendar-picker-indicator {
   background-color: #fff;
   border-color: #eaecf0;
   color: #403c39;
+}
+
+.popup {
+  width: 160px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #403c39;
+  display: none;
+  position: absolute;
+}
+.popup.show {
+  display: block;
+}
+.popup.top {
+  bottom: calc(100% + 4px);
+}
+.popup.left {
+  left: 0;
+}
+.popup.right {
+  left: unset;
+  right: 0;
+}
+.popup.bottom {
+  bottom: unset;
+  top: calc(100% + 4px);
+}
+.popup__header {
+  display: block;
+  color: #252522;
+  font-weight: 600;
+  padding: 8px;
+}
+.popup__body {
+  display: block;
+}
+.popup__input {
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #eaecf0;
+  border-radius: 0;
+  margin-bottom: 4px;
+}
+.popup__input:focus {
+  outline: none;
+}
+.popup__suggestions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.popup__user {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2px 8px;
+  border-bottom: 1px solid #eaecf0;
+  cursor: pointer;
+}
+.popup__user:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.popup__user .avatar {
+  margin-right: 8px;
+}
+.popup__footer {
+  padding: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.avatar {
+  width: 24px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
 }
 
 .todo {
@@ -854,6 +995,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .todo__header {
   padding: 16px;
   background-color: #ecebf2;
+  border-bottom: 1px solid #672ee3;
 }
 .todo__header__title {
   font-size: 16px;
@@ -872,9 +1014,13 @@ input[type=date]::-webkit-calendar-picker-indicator {
   text-align: center;
 }
 .todo__inner {
-  padding: 16px;
+  padding-bottom: 16px;
 }
 .todo__item {
+  border-bottom: 1px solid #eaecf0;
+  cursor: pointer;
+}
+.todo__item__wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -883,8 +1029,22 @@ input[type=date]::-webkit-calendar-picker-indicator {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  padding: 8px 0;
-  border-bottom: 1px solid #eaecf0;
+  padding: 8px 16px;
+}
+.todo__item__actions {
+  padding: 8px 16px 8px 48px;
+  background-color: gainsboro;
+}
+.todo__item__actions .form-inline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.todo__item__actions .form-inline .form__group {
+  margin-right: 16px;
 }
 .todo__item__status {
   width: 16px;
@@ -959,6 +1119,9 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .todo__item__meta > * {
   margin-right: 8px;
 }
+.todo__item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
 .todo__new {
   background-color: #ecebf2;
   border-radius: 16px 16px 0 0;
@@ -1026,7 +1189,7 @@ input[type=date]::-webkit-calendar-picker-indicator {
 .todo__new__input textarea:focus {
   outline: none;
 }
-.todo__new__bottom {
+.todo__new__footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1036,7 +1199,18 @@ input[type=date]::-webkit-calendar-picker-indicator {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
-.todo__new__bottom button {
+.todo__new__footer [data-for=assignUserpopup] {
+  position: relative;
+}
+.todo__new__footer #dueDate, .todo__new__footer #assignUser {
+  width: 2px;
+  opacity: 0;
+  visibility: hidden;
+}
+.todo__new__footer #dueDate ~ label, .todo__new__footer #assignUser ~ label {
+  margin-left: -4px;
+}
+.todo__new__footer .btn {
   margin-right: 4px;
 }
 .todo__new__actions {
